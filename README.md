@@ -40,11 +40,12 @@ We will not have enough time to phase and impute the data. If the program is tak
 
 Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
 
-###*Question:*
+###*Question 1:*
 
-How would the phasing algorithm use recombination rates.
-
-
+How would the phasing algorithm use recombination rates (develop).
 
 
+#Answer to questions
+###*Question 1:*
+How would the phasing algorithm use recombination rates. The phasing algorithm can use recombination rates to help estimate the probable relationship between haplotypes (develop).
 
