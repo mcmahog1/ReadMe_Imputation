@@ -40,7 +40,9 @@ We will not have enough time to phase and impute the data. If the program is tak
 
 Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
 
-###*Question:*### How would the phasing algorithm use recombination rates.
+###*Question:*
+
+How would the phasing algorithm use recombination rates.
 
 
 
