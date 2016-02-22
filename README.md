@@ -9,12 +9,17 @@
 #Log In
 
 On a windows machine, on the start button, type "Putty" into the search box.
+
 In Putty enter the Host Name bluecrystalp3.acrc.bris.ac.uk and click open.
-A new window will pop up, type in your username, press enter, and similiarly with your password
+
+A new window will pop up, type in your username, press enter, and similiarly with your password.
+
 The command line will now be visible that looks like: [username@newblue3 ~]$
 
-Finall,y run the following command to access a compute node: qsub ‐I ‐q teaching ‐l
+
+Finallyy run the following command to access a compute node: qsub ‐I ‐q teaching ‐l
 nodes=1:ppn=1, walltime=02:00:00
+
 
 #Data
 Data (directly genotyped data, genetic maps, reference halplotypes) for this practical is available in pract6_GWAS/data
