@@ -8,16 +8,16 @@
 
 #Log In
 
-On a windows machine, press on the start button, type "Putty" into the search box.
+On a windows machine, press on the start button and type "Putty" into the search box.
 
-In Putty enter the Host Name bluecrystalp3.acrc.bris.ac.uk and click open.
+In Putty enter the Host Name "bluecrystalp3.acrc.bris.ac.uk" and click open.
 
-A new window will pop up, type in your username, press enter, and similiarly with your password.
+A new window will pop up, type in your username, press enter, and similarly with your password.
 
-The command line will now be visible that looks like: [username@newblue3 ~]$
+The command line will now be visible which looks like: [username@newblue3 ~]$
 
 
-Finallyy run the following command to access a compute node: qsub ‐I ‐q teaching ‐l
+Finally, run the following command to access a compute node: qsub ‐I ‐q teaching ‐l
 nodes=1:ppn=1, walltime=02:00:00
 
 
