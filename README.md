@@ -22,10 +22,23 @@ nodes=1:ppn=1, walltime=02:00:00
 
 
 #Data
-Data (directly genotyped data, genetic maps, reference halplotypes) for this practical is available in pract6_GWAS/data
-Scripts (files containing commands) should be saved in pract3_GWAS/scripts
-You should save your output to pract3_GWAS/output
-If you get really stuck, example scripts and ready­made output are available
-in pract3_GWAS/results (no peaking unless you have to!)
+Data (directly genotyped data, genetic maps, reference halplotypes) for this practical is available in pract6_GWAS/data.
+
+We will be using the ‘clean’ GWAS dataset that you encountered in "Practical 3 : Genome­wide association
+study in Plink".
+
+We will be examining the transmembrane protein 18 (TMEM18) gene on the p telomere of chromosome 2 (2p25.3).
+
+Scripts (files containing commands) can be found in pract6_GWAS/scripts
+
+You can save your output to pract6_GWAS/output
+
+We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.
+
+
+#Exercise 1 ­ phasing the first 5 mB of chromosome 2
+
+
+
 
 
