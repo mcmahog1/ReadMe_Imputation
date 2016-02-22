@@ -8,7 +8,7 @@
 
 #Log In
 
-On a windows machine, on the start button, type "Putty" into the search box.
+On a windows machine, press on the start button, type "Putty" into the search box.
 
 In Putty enter the Host Name bluecrystalp3.acrc.bris.ac.uk and click open.
 
