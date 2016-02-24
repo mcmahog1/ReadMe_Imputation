@@ -46,7 +46,7 @@ Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
 
 ###*Question 2:*
 
-How many subjects and SNPs are in the sample data? How many SNPs?
+######How many subjects and SNPs are in the sample data? How many SNPs?
 
 
 Navigate to the scripts folder (cd scripts).
@@ -62,19 +62,19 @@ Take a look at the script impute.sh.
 
 ###*Question 3:*
 
-What do the following options mean with respect to the imputation process?
+######What do the following options mean with respect to the imputation process?
 
--use_prephased_g
+######-use_prephased_g
 
--known_haps_g
+######-known_haps_g
 
--m
+######-m
 
--l
+######-l
 
--h
+######-h
 
--int
+######-int
 
 
 Take a look at the reference haplotype and legend file.
@@ -84,7 +84,7 @@ zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genot
 
 ###*Question 4:*
  
-What do the the runs of 0's and 1's represent in the haplotype file?
+######What do the the runs of 0's and 1's represent in the haplotype file?
 
 
 Run the script impute.sh
