@@ -61,6 +61,7 @@ Take a look at the script impute.sh.
 Take a look at the reference haplotype and legend file.
 
 zcat ../data/haplotypes/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.haplotypes.gz | head -n 10
+
 zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.legend.gz | head -n 10
 
 Run the script impute.sh
