@@ -1,14 +1,12 @@
 # Practical: Imputation
-<br />
 # Objectives
 1.Phase a set of subjects who have been directly genotyped
 
 2.Impute phased haplotypes using the 1000 Genomes reference data
 
 3.Carry out an association study on imputed data and interpret the results
-<br />
-#Log In
 
+#Log In
 On a windows machine, press on the start button and type "Putty" into the search box.
 
 In Putty enter the Host Name "bluecrystalp3.acrc.bris.ac.uk" and click open.
@@ -17,11 +15,9 @@ A new window will pop up, type in your username, press enter, and similarly with
 
 The command line will now be visible which looks like: [username@newblue3 ~]$
 
-
 Finally, run the following command to access a compute node: qsub ‐I ‐q teaching ‐l
 nodes=1:ppn=1, walltime=02:00:00
 
-<br />
 #Data
 Data (directly genotyped data, genetic maps, reference halplotypes) for this practical is available in pract6_GWAS/data.
 
@@ -36,10 +32,14 @@ You can save your output to pract6_GWAS/output
 
 We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.
 
-<br />
+
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
 
 Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
+
+Navigate to the scripts folder (cd scripts).
+
+Run the script phase.sh
 
 ###*Question 1:*
 
@@ -51,17 +51,19 @@ Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
 ######How many subjects and SNPs are in the sample data? How many SNPs?
 <br />
 ---
-<br />
-Navigate to the scripts folder (cd scripts).
 
-Run the script phase.sh
-
-<br />
 #Exercise 2 ­ Impute haplotypes using the 1000 Genomes reference data 
 
 Navigate to the scripts folder (cd scripts).
 
 Take a look at the script impute.sh.
+
+Take a look at the reference haplotype and legend file.
+
+zcat ../data/haplotypes/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.haplotypes.gz | head -n 10
+zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.legend.gz | head -n 10
+
+Run the script impute.sh
 
 ###*Question 3:*
 
@@ -80,19 +82,12 @@ Take a look at the script impute.sh.
 ######-int
 <br />
 ---
-<br />
-Take a look at the reference haplotype and legend file.
-
-zcat ../data/haplotypes/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.haplotypes.gz | head -n 10
-zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.legend.gz | head -n 10
 
 ###*Question 4:*
  
 ######What do the the runs of 0's and 1's represent in the haplotype file?
 <br />
 ---
-<br />
-Run the script impute.sh
 
 #Exercise 3 ­ run an association analysis on the imputed results 
 
