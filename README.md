@@ -50,8 +50,7 @@ Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
 ######How many subjects and SNPs are in the sample data? How many SNPs?
 <br />
 ---
-
-
+<br />
 Navigate to the scripts folder (cd scripts).
 
 Run the script phase.sh
@@ -80,8 +79,7 @@ Take a look at the script impute.sh.
 ######-int
 <br />
 ---
-
-
+<br />
 Take a look at the reference haplotype and legend file.
 
 zcat ../data/haplotypes/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.haplotypes.gz | head -n 10
@@ -92,8 +90,7 @@ zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genot
 ######What do the the runs of 0's and 1's represent in the haplotype file?
 <br />
 ---
-
-
+<br />
 Run the script impute.sh
 
 #Exercise 3 ­ run an association analysis on the imputed results 
