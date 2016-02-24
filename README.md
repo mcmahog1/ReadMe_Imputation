@@ -48,7 +48,7 @@ Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
 ###*Question 2:*
 
 ######How many subjects and SNPs are in the sample data? How many SNPs?
-
+<br />
 ---
 
 
@@ -78,7 +78,7 @@ Take a look at the script impute.sh.
 ######-h
 
 ######-int
-
+<br />
 ---
 
 
@@ -90,7 +90,7 @@ zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genot
 ###*Question 4:*
  
 ######What do the the runs of 0's and 1's represent in the haplotype file?
-
+<br />
 ---
 
 
