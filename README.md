@@ -43,7 +43,7 @@ Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
 ###*Question 1:*
 
 ######How would the phasing algorithm use recombination rates (develop)?
-
+<br />
 ---
 ###*Question 2:*
 
