@@ -32,7 +32,6 @@ You can save your output to pract6_GWAS/output
 
 We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.
 
-
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
 
 Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
@@ -41,16 +40,36 @@ Navigate to the scripts folder (cd scripts).
 
 Run the script phase.sh
 
+Take a look at the output file results/geno_qc_TMEM18.phased.haps
+
 ###*Question 1:*
 
-######How would the phasing algorithm use recombination rates (develop)?
+######How would the phasing algorithm use recombination rates ?
 <br />
 ---
 ###*Question 2:*
 
-######How many subjects and SNPs are in the sample data? How many SNPs?
+######How many subjects and SNPs are in the sample data? 
 <br />
 ---
+###*Question 3:*
+
+######How many haplotypes, then, will be in the sample and how many SNPs? 
+<br />
+---
+###*Question 4:*
+ 
+######What do the the runs of 0's and 1's represent in the output haplotype file? hint (check https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html#hapsample)
+<br />
+---
+###*Question 5:*
+ 
+######How many rows and columns would you expect in this file? Confirm how many there actually are.
+<br />
+---
+
+
+
 
 #Exercise 2 ­ Impute haplotypes using the 1000 Genomes reference data 
 
@@ -84,20 +103,18 @@ Run the script impute.sh
 <br />
 ---
 
-###*Question 4:*
- 
-######What do the the runs of 0's and 1's represent in the haplotype file?
-<br />
----
+
 
 #Exercise 3 ­ run an association analysis on the imputed results 
 
+
+
 #Answer to questions
 ###*Answer 1:*
-The phasing algorithm can use recombination rates to help estimate the probable relationship between haplotypes (develop).
-
+The phasing algorithm can use recombination rates to help estimate the probable relationship between haplotypes. For example if two in phase haplotypes are are observed to be 1100 and 0001, then 1101 (formed by recombination) is more likely than 1111 (not possible by recombination or mutation alone).
 
 ###*Answer 2:*
+
 add plink as a module - "module add apps/plink-1.07"
 
 obtain the path of the samples to be phased by taking a look the "phase.sh" script
@@ -106,6 +123,23 @@ run plink with no output - plink --bfile ../data/directlyGenotypedData/geno_qc_T
 
 There are 651 SNPs and 8,237 samples
 
+###*Answer 3:*
+
+The number of haplotypes in the sample is twice the number of subjects, in this case 2*8237 = 16,474. There are still 651 SNPs.
+
+###*Answer 4:*
+
+These 0's represent the first listed allele (column 4) and the 1's represent allele 1 (column 5). Each sucessive pair of digits in each row represent a pair of genotypes (either 00, 01, 11) for one subject in the reference panel. Each column, (starting from column 6) represents a haplotype and each pair of successive columns represents two phased haplotypes of a subject.
+
+###*Answer 5:*
+
+There should be 651 rows in this file, one for each marker and 16,474 columns one for each haplotype plus 5 for the chromosome, SNP name, position, first allele, second allele, giving 16,479 in total. 
+
+This can be confirmed using some simpl-ish unix functions 
+
+wc -l /results/geno_qc_TMEM18.phased.haps
+
+head -n 1 ../results/geno_qc_TMEM18.phased.haps | sed 's/ /\n/g' | wc -l
 
 ###*Answer 3:*
 -use_prephased_g - this implements imputation using genetic data that has already been phased into two haplotypes per person
@@ -118,7 +152,10 @@ There are 651 SNPs and 8,237 samples
 
 -int - this gives the region currently to be imputed
 
-
 ###*Answer 4:*
 
 These 0's represent allele 0 in the legend file and the 1's represent allele 1. Each sucessive pair of digits in each row represent a pair of genotypes (either 00, 01, 11) for one subject in the reference panel.  
+
+
+ 
+
