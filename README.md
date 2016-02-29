@@ -85,7 +85,7 @@ zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genot
 
 Run the script impute.sh
 
-###*Question 3:*
+###*Question 6:*
 
 ######What do the following options mean with respect to the imputation process?
 
@@ -103,11 +103,29 @@ Run the script impute.sh
 <br />
 ---
 
+###*Question 7:*
 
+How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html)
+
+###*Question 8:*
+How many samples are in the output
+
+###*Question 9:*
+Interpretation of the concordance table
+
+###*Question 10:*
+SNP level info (where what would be filterd on, how many SNPs left after filtering)
+
+###*Question 11:*
+Reading the output, dosage data
+
+
+How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html)
 
 #Exercise 3 ­ run an association analysis on the imputed results 
 
-
+###*Question 12:*
+what model is being used in the association, how is the imputed data coded
 
 #Answer to questions
 ###*Answer 1:*
@@ -141,7 +159,7 @@ wc -l /results/geno_qc_TMEM18.phased.haps
 
 head -n 1 ../results/geno_qc_TMEM18.phased.haps | sed 's/ /\n/g' | wc -l
 
-###*Answer 3:*
+###*Answer 6:*
 -use_prephased_g - this implements imputation using genetic data that has already been phased into two haplotypes per person
 
 -m - the indicates the genetic map which contains recombination rates
@@ -152,9 +170,9 @@ head -n 1 ../results/geno_qc_TMEM18.phased.haps | sed 's/ /\n/g' | wc -l
 
 -int - this gives the region currently to be imputed
 
-###*Answer 4:*
+###*Answer 7:*
 
-These 0's represent allele 0 in the legend file and the 1's represent allele 1. Each sucessive pair of digits in each row represent a pair of genotypes (either 00, 01, 11) for one subject in the reference panel.  
+
 
 
  
