@@ -128,6 +128,9 @@ What do the first eight columns represent in the imputation output. What is the 
 #Exercise 3 ­ run an association analysis on the imputed results 
 
 ###*Question 12:*
+
+How many people are in the output for analysis.
+
 What is the dosage of the first person at the first SNP. what model is being used in the association, how is the imputed data coded
 
 compare older run with newer run
