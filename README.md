@@ -171,7 +171,7 @@ head -n 1 ../results/geno_qc_TMEM18.phased.haps | sed 's/ /\n/g' | wc -l
 -int - this gives the region currently to be imputed
 
 ###*Answer 7:*
-
+There are 49,970 SNPs and 1092 subjects (2184 haplotypes) in the reference data. There are 651 SNPs and 8,237 samples in the target data as before.
 
 
 
