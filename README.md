@@ -112,7 +112,7 @@ How many SNPs and Samples are being used for imputation from the target data, fr
 Describe and interpret the concordance table (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#concordance_tables)
 
 ###*Question 9:*
-What value of info score should be filtered on? What proportion of SNPs are removed after filtering on info score
+What value of info score should be filtered on? What proportion of SNPs are removed after filtering on this info score. Why is it a good idea to filter on info score (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#-i and https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#info_metric_details)
 
 ###*Question 11:*
 Reading the output, dosage data
@@ -176,4 +176,13 @@ For this table only, each directly genotyped SNP is treated as missing, then imp
 
 The concordance table is useful to spot a problem with the imputation. The number in the top right hand corner of the table give the percentage of all genotypes which match their imputed counterparts. This should be over 95%. 
  
+###*Answer 9:*
+The info score ranges from 0 to 1, where 1 indicates an imputation with near certainty. It is typically to filter on an info score of 0.5 using Impute2 output, but this can vary from imputation to imputation and can be investigated by examining whether any inflation of test statistics from an association analysis are determined by what info score is used to filter on.
 
+If we filter on a score of 0.5 we get 
+
+awk '{ if ($7 > 0.5) print }' results/geno_qc_TMEM18.phased.haps.impute2_info | wc -l
+
+23638 SNPs. In other words about 50% of our SNPs are below this level.
+
+It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and a association signal they represent may be unreliable.
