@@ -188,6 +188,6 @@ awk '{ if ($7 > 0.5) print }' results/geno_qc_TMEM18.phased.haps.impute2_info | 
 It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and a association signal they represent may be unreliable.
 
 ###*Answer 9:*
-The first 8 colums represent chromosome number which is left blank at present, SNP id, base pair position, the first allele, the second allele, the probability that the first person is homozygous for the first allele, the probability that the first person is heterozygous, the probability that the first person is homozygous for the second allele. 
+The first 8 colums represent SNP id which is left blank at present, rsid, base pair position, the first allele, the second allele, the probability that the first person is homozygous for the first allele, the probability that the first person is heterozygous, the probability that the first person is homozygous for the second allele. 
 
 The first person is most likely a carrier of the CC genotype.
