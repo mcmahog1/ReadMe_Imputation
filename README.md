@@ -114,8 +114,8 @@ Describe and interpret the concordance table (hint https://mathgen.stats.ox.ac.u
 ###*Question 9:*
 What value of info score should be filtered on? What proportion of SNPs are removed after filtering on this info score. Why is it a good idea to filter on info score (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#-i and https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#info_metric_details)
 
-###*Question 11:*
-Reading the output, dosage data
+###*Question 10:*
+What do the first eight columns represent in the imputation output. What is the most likely genotype of the first person at the first SNP (columns 6 to 8).
 
 
 How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html)
@@ -186,3 +186,8 @@ awk '{ if ($7 > 0.5) print }' results/geno_qc_TMEM18.phased.haps.impute2_info | 
 23638 SNPs. In other words about 50% of our SNPs are below this level.
 
 It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and a association signal they represent may be unreliable.
+
+###*Answer 9:*
+The first 8 colums represent chromosome number which is left blank at present, SNP id, base pair position, the first allele, the second allele, the probability that the first person is homozygous for the first allele, the probability that the first person is heterozygous, the probability that the first person is homozygous for the second allele. 
+
+The first person is most likely a carrier of the CC genotype.
