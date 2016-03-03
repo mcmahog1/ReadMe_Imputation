@@ -85,6 +85,8 @@ zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genot
 
 Run the script impute.sh
 
+Take a look at the log file impute2.log
+
 ###*Question 6:*
 
 ######What do the following options mean with respect to the imputation process?
@@ -104,17 +106,13 @@ Run the script impute.sh
 ---
 
 ###*Question 7:*
-
-How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html)
+How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html). How many samples and SNPs are in the output.
 
 ###*Question 8:*
-How many samples are in the output
+Describe and interpret the concordance table (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#concordance_tables)
 
 ###*Question 9:*
-Interpretation of the concordance table
-
-###*Question 10:*
-SNP level info (where what would be filterd on, how many SNPs left after filtering)
+What value of info score should be filtered on? What proportion of SNPs are removed after filtering on info score
 
 ###*Question 11:*
 Reading the output, dosage data
@@ -171,9 +169,11 @@ head -n 1 ../results/geno_qc_TMEM18.phased.haps | sed 's/ /\n/g' | wc -l
 -int - this gives the region currently to be imputed
 
 ###*Answer 7:*
-There are 49,970 SNPs and 1092 subjects (2184 haplotypes) in the reference data. There are 651 SNPs and 8,237 samples in the target data as before.
+There are 651 SNPs and 8,237 samples in the target data as before. There are 49,970 non-overlapping SNPs and 1092 subjects (2184 haplotypes) in the reference data. There are 50,621 (49,970 + 651) SNPs and 8,237 samples as before.
 
+###*Answer 8:*
+For this table only, each directly genotyped SNP is treated as missing, then imputed, and the agreement between a subjects genotype and its imputed version is summarized across all subjects. This is done for all directly genotyped SNPs and the results summarized in the concordance table. The table has three columns. The first indicates (ranks) the quality of the imputation on a scale of 0 to 1 for each genotype, the second indicates the number of genotypes with this level of quality and the third column indicates the amount of concordance between these genotypes and their imputed counter parts
 
-
+The concordance table is useful to spot a problem with the imputation. The number in the top right hand corner of the table give the percentage of all genotypes which match their imputed counterparts. This should be over 95%. 
  
 
