@@ -107,23 +107,30 @@ Take a look at the log file impute2.log
 
 ###*Question 7:*
 How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html). How many samples and SNPs are in the output.
+<br />
+---
 
 ###*Question 8:*
 Describe and interpret the concordance table (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#concordance_tables)
+<br />
+---
 
 ###*Question 9:*
 What value of info score should be filtered on? What proportion of SNPs are removed after filtering on this info score. Why is it a good idea to filter on info score (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#-i and https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#info_metric_details)
+<br />
+---
 
 ###*Question 10:*
 What do the first eight columns represent in the imputation output. What is the most likely genotype of the first person at the first SNP (columns 6 to 8).
-
-
-How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html)
+<br />
+---
 
 #Exercise 3 ­ run an association analysis on the imputed results 
 
 ###*Question 12:*
-what model is being used in the association, how is the imputed data coded
+What is the dosage of the first person at the first SNP. what model is being used in the association, how is the imputed data coded
+
+compare older run with newer run
 
 #Answer to questions
 ###*Answer 1:*
