@@ -84,26 +84,7 @@ Take a look at the output file results/geno_qc_TMEM18.phased.haps
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
----
-<br />
-<br />
----
-<br />
-<br />
+
 
 
 
