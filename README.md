@@ -69,8 +69,6 @@ Take a look at the output file results/geno_qc_TMEM18.phased.haps
 ---
 
 
-
-
 #Exercise 2 ­ Impute haplotypes using the 1000 Genomes reference data 
 
 Navigate to the scripts folder (cd scripts).
@@ -86,6 +84,7 @@ zcat ../data/legend/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genot
 Run the script impute.sh
 
 Take a look at the log file impute2.log
+
 
 ###*Question 6:*
 
@@ -127,9 +126,15 @@ What do the first eight columns represent in the imputation output. What is the 
 
 #Exercise 3 ­ run an association analysis on the imputed results 
 
-###*Question 12:*
+We started this practical using the output of practical 3 "Genomewide association study in Plink", a cleaned set of genotyped data (which has also being aligned to the forward strand).  We will now re-examine the association on chromosome 2 after imputing the data.
 
-How many people are in the output for analysis.
+check the GWAS significant associations in the observed data (in the results folder)
+
+###*Question 12:*
+What does "aligned to the forward strand" mean?
+
+###*Question 13:*
+How many significant associations on chromosome 2 are there in the observed data? What are the names, reference alleles, betas and P values of these SNPs?
 
 What is the dosage of the first person at the first SNP. what model is being used in the association, how is the imputed data coded
 
@@ -197,7 +202,16 @@ awk '{ if ($7 > 0.5) print }' results/geno_qc_TMEM18.phased.haps.impute2_info | 
 
 It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and a association signal they represent may be unreliable.
 
-###*Answer 9:*
+###*Answer 10:*
 The first 8 colums represent SNP id which is left blank at present, rsid, base pair position, the first allele, the second allele, the probability that the first person is homozygous for the first allele, the probability that the first person is heterozygous, the probability that the first person is homozygous for the second allele. 
 
 The first person is most likely a carrier of the CC genotype.
+
+###*Answer 12:*
+A SNP will indicate two possible bases at a genomic location, e.g. T/G. Each base pairs with a complementary base on the DNA strand. In this case T binds with A and G binds with C. Therefore it would be just as informative to identify the possible bases at this SNP as A/C. The difference here is that one is on the forward strand of DNA and one on the backwards strand of DNA. It is important that the target data and the reference data are coded on the same strand, to avoid the phasing and imputation algorithms resulting in an error. 
+
+###*Answer 13:*
+awk '{ if ($9 < 5.e-8) print }' results/bmi_clean.assoc.linear.add
+
+There are two significant SNPs: rs2867125 (beta -0.6, reference allele T, P value 1.6e-09) and rs7561317 (beta -0.6, reference allele A, P value 1.6e-09).
+
