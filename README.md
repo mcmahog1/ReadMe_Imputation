@@ -71,6 +71,11 @@ Take a look at the output file results/geno_qc_TMEM18.phased.haps
  
 ######How many rows and columns would you expect in this file? Confirm how many there actually are. 
 
+<br />
+---
+<br />
+---  
+
 
 #Exercise 2 ­ Impute haplotypes using the 1000 Genomes reference data 
 
