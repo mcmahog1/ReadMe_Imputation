@@ -37,7 +37,10 @@ We will not have enough time to phase and impute the data. If the program is tak
 <br />
 <br />
 <br />
- 
+<br />
+<br />
+<br />
+
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
 
 Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
