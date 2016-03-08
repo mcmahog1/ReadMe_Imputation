@@ -71,7 +71,9 @@ Take a look at the output file results/geno_qc_TMEM18.phased.haps
 <br />
 ---
 
-\newpage
+
+ 
+  
 
 #Exercise 2 ­ Impute haplotypes using the 1000 Genomes reference data 
 
