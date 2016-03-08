@@ -32,7 +32,7 @@ You can save your output to pract6_GWAS/output
 
 We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.
 
-<div></div>
+\newpage
 
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
 
@@ -70,6 +70,7 @@ Take a look at the output file results/geno_qc_TMEM18.phased.haps
 <br />
 ---
 
+\newpage
 
 #Exercise 2 ­ Impute haplotypes using the 1000 Genomes reference data 
 
