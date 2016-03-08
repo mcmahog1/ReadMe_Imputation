@@ -31,8 +31,13 @@ Scripts (files containing commands) can be found in pract6_GWAS/scripts
 You can save your output to pract6_GWAS/output
 
 We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.
+
 <br />
 <br />
+<br />
+<br />
+<br />
+
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
 
 Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
