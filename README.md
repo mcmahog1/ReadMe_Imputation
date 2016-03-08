@@ -132,12 +132,24 @@ check the GWAS significant associations in the observed data (in the results fol
 
 ###*Question 12:*
 What does "aligned to the forward strand" mean?
+<br />
+---
 
 ###*Question 13:*
 How many significant associations on chromosome 2 are there in the observed data? What are the names, reference alleles, betas and P values of these SNPs?
+<br />
+---
 
 ###*Question 14:*
 How many significant associations on chromosome 2 are there in the imputed data? For the two significant SNPs in the observed data what are there association statistics after imputation? What do the top associations in the imputed data look like?
+<br />
+---
+
+
+
+
+
+
 
 #Answer to questions
 ###*Answer 1:*
