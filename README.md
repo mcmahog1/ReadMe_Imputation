@@ -30,11 +30,8 @@ Scripts (files containing commands) can be found in pract6_GWAS/scripts
 
 You can save your output to pract6_GWAS/output
 
-We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.                                                                                                                                                                                                                                
-<br />
----
-<br />
----                       
+We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.
+
 
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
 
@@ -69,8 +66,6 @@ Take a look at the output file results/geno_qc_TMEM18.phased.haps
 ###*Question 5:*
  
 ######How many rows and columns would you expect in this file? Confirm how many there actually are.                                   <br />
----
----
 ---
 
 #Exercise 2 ­ Impute haplotypes using the 1000 Genomes reference data 
@@ -128,11 +123,13 @@ What do the first eight columns represent in the imputation output. What is the 
 <br />
 ---
 
+
 #Exercise 3 ­ run an association analysis on the imputed results 
 
 We started this practical using the output of practical 3 "Genomewide association study in Plink", a cleaned set of genotyped data (which has also being aligned to the forward strand).  We will now re-examine the association on chromosome 2 after imputing the data.
 
 check the GWAS significant associations in the observed data (in the results folder)
+
 
 ###*Question 12:*
 What does "aligned to the forward strand" mean?
@@ -150,12 +147,6 @@ How many significant associations on chromosome 2 are there in the imputed data?
 ---
 
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 #Answer to questions
 ###*Answer 1:*
 The phasing algorithm can use recombination rates to help estimate the probable relationship between haplotypes. For example if two in phase haplotypes are are observed to be 1100 and 0001, then 1101 (formed by recombination) is more likely than 1111 (not possible by recombination or mutation alone).
