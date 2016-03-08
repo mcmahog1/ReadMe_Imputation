@@ -120,7 +120,7 @@ What value of info score should be filtered on? What proportion of SNPs are remo
 ---
 
 ###*Question 10:*
-What do the first eight columns represent in the imputation output. What is the most likely genotype of the first person at the first SNP (columns 6 to 8).
+What do the first eight columns represent in the imputation output. What is the most likely genotype of the first person at the first SNP (columns 6 to 8). What is the dosage of the C allele.
 <br />
 ---
 
@@ -136,9 +136,8 @@ What does "aligned to the forward strand" mean?
 ###*Question 13:*
 How many significant associations on chromosome 2 are there in the observed data? What are the names, reference alleles, betas and P values of these SNPs?
 
-What is the dosage of the first person at the first SNP. what model is being used in the association, how is the imputed data coded
-
-compare older run with newer run
+###*Question 14:*
+How many significant associations on chromosome 2 are there in the imputed data? For the two significant SNPs in the observed data what are there association statistics after imputation? What do the top associations in the imputed data look like?
 
 #Answer to questions
 ###*Answer 1:*
@@ -203,9 +202,13 @@ awk '{ if ($7 > 0.5) print }' results/geno_qc_TMEM18.phased.haps.impute2_info | 
 It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and a association signal they represent may be unreliable.
 
 ###*Answer 10:*
+head -n 1 results/geno_qc_TMEM18.phased.haps.impute2 | cut -d ' ' -f1-8
+
 The first 8 colums represent SNP id which is left blank at present, rsid, base pair position, the first allele, the second allele, the probability that the first person is homozygous for the first allele, the probability that the first person is heterozygous, the probability that the first person is homozygous for the second allele. 
 
 The first person is most likely a carrier of the CC genotype.
+
+The corresponding dosage of the C allele would be 2.
 
 ###*Answer 12:*
 A SNP will indicate two possible bases at a genomic location, e.g. T/G. Each base pairs with a complementary base on the DNA strand. In this case T binds with A and G binds with C. Therefore it would be just as informative to identify the possible bases at this SNP as A/C. The difference here is that one is on the forward strand of DNA and one on the backwards strand of DNA. It is important that the target data and the reference data are coded on the same strand, to avoid the phasing and imputation algorithms resulting in an error. 
@@ -215,3 +218,20 @@ awk '{ if ($9 < 5.e-8) print }' results/bmi_clean.assoc.linear.add
 
 There are two significant SNPs: rs2867125 (beta -0.6, reference allele T, P value 1.6e-09) and rs7561317 (beta -0.6, reference allele A, P value 1.6e-09).
 
+###*Answer 14:*
+We use unix to print out relevant association statistics from the imputed results. 
+awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print }' /results/BMIphenImputedResults.txt | grep -v 'model_not_fit'  | wc -l
+
+There are now 218 associations. Columns 2, 6, 9, 19, 21, 23 are marker id, reference allele, info score, MAF, P value and beta respectively
+
+awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print $2" "$6" "$9" "$19" "$21" "$23 }' /results/BMIphenImputedResults.txt | egrep 'rs2867125|rs7561317'
+
+This gives the results below. These results match those in the observed data as expected.
+
+rs2867125 C 1 0.167658 1.60884e-09 0.612093
+rs7561317 G 1 0.167658 1.63548e-09 0.612093
+
+Lets take a look at the top associations 
+awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print }' /results/BMIphenImputedResults.txt | grep -v 'model_not_fit'  | awk '{ print $2" "$6" "$9" "$19" "$21" "$23}' | sort ‐g ‐k 5 | head
+
+There are many SNPs with P values lower or close to those in the observed data. Imputation quality is also generally high. Each would be a good candidate for futher examination (e.g. protein coding changes, eqtl site? etc).
