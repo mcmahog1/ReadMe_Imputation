@@ -105,22 +105,22 @@ Take a look at the log file impute2.log
 ---
 
 ###*Question 7:*
-How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check [https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html](https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html)). How many samples and SNPs are in the output.
+######How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html). How many samples and SNPs are in the output.
 <br />
 ---
 
 ###*Question 8:*
-Describe and interpret the concordance table (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#concordance_tables)
+######Describe and interpret the concordance table (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#concordance_tables)
 <br />
 ---
 
 ###*Question 9:*
-What value of info score should be filtered on? What proportion of SNPs are removed after filtering on this info score. Why is it a good idea to filter on info score (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#-i and https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#info_metric_details)
+######What value of info score should be filtered on? What proportion of SNPs are removed after filtering on this info score. Why is it a good idea to filter on info score (hint https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#-i and https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#info_metric_details)
 <br />
 ---
 
 ###*Question 10:*
-What do the first eight columns represent in the imputation output. What is the most likely genotype of the first person at the first SNP (columns 6 to 8). What is the dosage of the C allele.
+######What do the first eight columns represent in the imputation output. What is the most likely genotype of the first person at the first SNP (columns 6 to 8). What is the dosage of the C allele.
 <br />
 ---
 
@@ -131,18 +131,19 @@ We started this practical using the output of practical 3 "Genomewide associatio
 
 check the GWAS significant associations in the observed data (in the results folder)
 
+Run the script assoc.sh and take a look at the association results
 
-###*Question 12:*
+###*Question 11:*
 What does "aligned to the forward strand" mean?
 <br />
 ---
 
-###*Question 13:*
+###*Question 12:*
 How many significant associations on chromosome 2 are there in the observed data? What are the names, reference alleles, betas and P values of these SNPs?
 <br />
 ---
 
-###*Question 14:*
+###*Question 13:*
 How many significant associations on chromosome 2 are there in the imputed data? For the two significant SNPs in the observed data what are there association statistics after imputation? What do the top associations in the imputed data look like?
 <br />
 ---
@@ -168,7 +169,7 @@ The number of haplotypes in the sample is twice the number of subjects, in this 
 
 ###*Answer 4:*
 
-These 0's represent the first listed allele (column 4) and the 1's represent allele 1 (column 5). Each sucessive pair of digits in each row represent a pair of genotypes (either 00, 01, 11) for one subject in the reference panel. Each column, (starting from column 6) represents a haplotype and each pair of successive columns represents two phased haplotypes of a subject.
+These 0's represent the first listed allele (column 4) and the 1's represent the second listed allele (column 5). Each sucessive pair of digits in each row represent a pair of genotypes (either 00, 01, 11) for one subject in the reference panel. Each column, (starting from column 6) represents a haplotype and each pair of successive columns represents two phased haplotypes of a subject.
 
 ###*Answer 5:*
 
@@ -192,12 +193,12 @@ head -n 1 ../results/geno_qc_TMEM18.phased.haps | sed 's/ /\n/g' | wc -l
 -int - this gives the region currently to be imputed
 
 ###*Answer 7:*
-There are 651 SNPs and 8,237 samples in the target data as before. There are 49,970 non-overlapping SNPs and 1092 subjects (2184 haplotypes) in the reference data. There are 50,621 (49,970 + 651) SNPs and 8,237 samples as before.
+There are 651 SNPs and 8,237 samples in the target data as before. There are 49,970 non-overlapping SNPs and 1092 subjects (2184 haplotypes) in the reference data. There are 50,621 (49,970 + 651) SNPs and 8,237 samples in the output.
 
 ###*Answer 8:*
-For this table only, each directly genotyped SNP is treated as missing, then imputed, and the agreement between a subjects genotype and its imputed version is summarized across all subjects. This is done for all directly genotyped SNPs and the results summarized in the concordance table. The table has three columns. The first indicates (ranks) the quality of the imputation on a scale of 0 to 1 for each genotype, the second indicates the number of genotypes with this level of quality and the third column indicates the amount of concordance between these genotypes and their imputed counter parts
+For this table only, each directly genotyped SNP is treated as missing, then imputed, and the agreement between a subjects genotype and its imputed version is summarized across all subjects. This is done for all directly genotyped SNPs and the results summarized in the concordance table. The table has three columns. The first indicates (ranks) the quality of the imputation on a scale of 0 to 1 for each genotype, the second indicates the number of genotypes with this level of quality and the third column indicates the amount of concordance between these genotypes and their imputed counter parts.
 
-The concordance table is useful to spot a problem with the imputation. The number in the top right hand corner of the table give the percentage of all genotypes which match their imputed counterparts. This should be over 95%. 
+The concordance table is useful to spot a problem with the imputation. The number in the top right hand corner of the table gives the percentage of all genotypes which match their imputed counterparts. This should be over 95%. 
  
 ###*Answer 9:*
 The info score ranges from 0 to 1, where 1 indicates an imputation with near certainty. It is typically to filter on an info score of 0.5 using Impute2 output, but this can vary from imputation to imputation and can be investigated by examining whether any inflation of test statistics from an association analysis are determined by what info score is used to filter on.
@@ -208,7 +209,7 @@ awk '{ if ($7 > 0.5) print }' results/geno_qc_TMEM18.phased.haps.impute2_info | 
 
 23638 SNPs. In other words about 50% of our SNPs are below this level.
 
-It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and a association signal they represent may be unreliable.
+It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and an association signal they represent may be unreliable.
 
 ###*Answer 10:*
 head -n 1 results/geno_qc_TMEM18.phased.haps.impute2 | cut -d ' ' -f1-8
@@ -219,15 +220,15 @@ The first person is most likely a carrier of the CC genotype.
 
 The corresponding dosage of the C allele would be 2.
 
-###*Answer 12:*
+###*Answer 11:*
 A SNP will indicate two possible bases at a genomic location, e.g. T/G. Each base pairs with a complementary base on the DNA strand. In this case T binds with A and G binds with C. Therefore it would be just as informative to identify the possible bases at this SNP as A/C. The difference here is that one is on the forward strand of DNA and one on the backwards strand of DNA. It is important that the target data and the reference data are coded on the same strand, to avoid the phasing and imputation algorithms resulting in an error. 
 
-###*Answer 13:*
+###*Answer 12:*
 awk '{ if ($9 < 5.e-8) print }' results/bmi_clean.assoc.linear.add
 
 There are two significant SNPs: rs2867125 (beta -0.6, reference allele T, P value 1.6e-09) and rs7561317 (beta -0.6, reference allele A, P value 1.6e-09).
 
-###*Answer 14:*
+###*Answer 13:*
 We use unix to print out relevant association statistics from the imputed results. 
 awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print }' /results/BMIphenImputedResults.txt | grep -v 'model_not_fit'  | wc -l
 
@@ -238,6 +239,7 @@ awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print 
 This gives the results below. These results match those in the observed data as expected.
 
 rs2867125 C 1 0.167658 1.60884e-09 0.612093
+
 rs7561317 G 1 0.167658 1.63548e-09 0.612093
 
 Lets take a look at the top associations 
