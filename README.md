@@ -26,11 +26,11 @@ study in Plink".
 
 We will be examining the transmembrane protein 18 (TMEM18) gene on the p telomere of chromosome 2 (2p25.3).
 
-Scripts (files containing commands) can be found in pract6_GWAS/scripts
+Scripts (files containing commands) can be found in pract6_GWAS/scripts. We will be looking at the input and output files of these scripts, the locations of which can be obtained from the the script (e.g. by applying the less or head unix command).
 
 You can save your output to pract6_GWAS/output
 
-We will not have enough time to phase and impute the data. If the program is taking to long and you are ready to move one, please press "control" and "z" together. This will stop the program and then refer to the ready­made output is available in pract6_GWAS/results.
+We will not have enough time to phase and impute the data. If the program is taking too long and you are ready to move on, please press "control" and "z" together. This will stop the program and then refer to the ready made output is available in pract6_GWAS/results.
 
 
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
@@ -105,7 +105,7 @@ Take a look at the log file impute2.log
 ---
 
 ###*Question 7:*
-How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html). How many samples and SNPs are in the output.
+How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check [https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html](https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html)). How many samples and SNPs are in the output.
 <br />
 ---
 
