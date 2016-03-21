@@ -19,6 +19,8 @@ The command line will now be visible which looks like: [username@newblue3 ~]$
 
 Finally, run the following command to access a compute node: qsub ‐I ‐q teaching ‐l nodes=1:ppn=1, walltime=02:00:00. This will give you access to the unix command line.
 
+You should be now able to complete the practical.
+
 
 #Data
 Data (directly genotyped data, genetic maps, reference halplotypes) for this practical is available in pract6_Imputation/data.
