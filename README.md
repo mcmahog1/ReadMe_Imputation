@@ -17,8 +17,7 @@ A new window will pop up, type in your username, press enter, and similarly with
 
 The command line will now be visible which looks like: [username@newblue3 ~]$
 
-Finally, run the following command to access a compute node: qsub ‐I ‐q teaching ‐l
-nodes=1:ppn=1, walltime=02:00:00
+Finally, run the following command to access a compute node: qsub ‐I ‐q teaching ‐l nodes=1:ppn=1, walltime=02:00:00. This will give you access to the unix command line.
 
 
 #Data
