@@ -11,7 +11,7 @@ On a windows machine, press on the start button and type "Putty" into the search
 
 In Putty enter the Host Name "bluecrystalp3.acrc.bris.ac.uk" and click open.
 
-A new window will pop up, type in your username, press enter, and similarly with your password.
+A new window will pop up, type in your username, press enter, and similarly with your password. Don't worry if the password doesn't show up on the screen when you are typing.
 
 The command line will now be visible which looks like: [username@newblue3 ~]$
 
@@ -19,23 +19,23 @@ Finally, run the following command to access a compute node: qsub ‐I ‐q teac
 nodes=1:ppn=1, walltime=02:00:00
 
 #Data
-Data (directly genotyped data, genetic maps, reference halplotypes) for this practical is available in pract6_GWAS/data.
+Data (directly genotyped data, genetic maps, reference halplotypes) for this practical is available in pract6_Imputation/data.
 
 We will be using the ‘clean’ GWAS dataset that you encountered in "Practical 3 : Genome­wide association
 study in Plink".
 
 We will be examining the transmembrane protein 18 (TMEM18) gene on the p telomere of chromosome 2 (2p25.3).
 
-Scripts (files containing commands) can be found in pract6_GWAS/scripts. We will be looking at the input and output files of these scripts, the locations of which can be obtained from the the script (e.g. by applying the less or head unix command).
+Scripts (files containing commands) can be found in pract6_Imputation/scripts. We will be looking at the input and output files of these scripts, the locations of which can be obtained from the the script (e.g. by applying the less or head unix command).
 
-You can save your output to pract6_GWAS/output
+You can save your output to pract6_Imputation/output
 
-We will not have enough time to phase and impute the data. If the program is taking too long and you are ready to move on, please press "control" and "z" together. This will stop the program and then refer to the ready made output is available in pract6_GWAS/results.
+We will not have enough time to phase and impute the data. If the program is taking too long and you are ready to move on, please press "control" and "z" together. This will stop the program and then refer to the ready made output is available in pract6_Imputation/results.
 
 
 #Exercise 1 ­ phasing the first 5 megabases (mB) of chromosome 2
 
-Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/)
+Take a look at the genetic map file (e.g. head -n 10 data/geneticMap/genetic_map_chr2_combined_b37.txt)
 
 Navigate to the scripts folder (cd scripts).
 
@@ -105,7 +105,7 @@ Take a look at the log file impute2.log
 ---
 
 ###*Question 7:*
-######How many SNPs and Samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html). How many samples and SNPs are in the output.
+######How many SNPs and samples are being used for imputation from the target data, from the reference data? (Hint check https://mathgen.stats.ox.ac.uk/impute/impute2_overview.html). How many samples and SNPs are in the output.
 <br />
 ---
 
@@ -177,7 +177,7 @@ There should be 651 rows in this file, one for each marker and 16,474 columns on
 
 This can be confirmed using some simpl-ish unix functions 
 
-wc -l /results/geno_qc_TMEM18.phased.haps
+wc -l ../results/geno_qc_TMEM18.phased.haps
 
 head -n 1 ../results/geno_qc_TMEM18.phased.haps | sed 's/ /\n/g' | wc -l
 
@@ -205,14 +205,14 @@ The info score ranges from 0 to 1, where 1 indicates an imputation with near cer
 
 If we filter on a score of 0.5 we get 
 
-awk '{ if ($7 > 0.5) print }' results/geno_qc_TMEM18.phased.haps.impute2_info | wc -l
+awk '{ if ($7 > 0.5) print }' ../results/geno_qc_TMEM18.phased.haps.impute2_info | wc -l
 
 23638 SNPs. In other words about 50% of our SNPs are below this level.
 
 It is a good idea to remove poorly imputed SNPs as they are unlikely to represent the true genotypic values and an association signal they represent may be unreliable.
 
 ###*Answer 10:*
-head -n 1 results/geno_qc_TMEM18.phased.haps.impute2 | cut -d ' ' -f1-8
+head -n 1 ../results/geno_qc_TMEM18.phased.haps.impute2 | cut -d ' ' -f1-8
 
 The first 8 colums represent SNP id which is left blank at present, rsid, base pair position, the first allele, the second allele, the probability that the first person is homozygous for the first allele, the probability that the first person is heterozygous, the probability that the first person is homozygous for the second allele. 
 
@@ -224,17 +224,17 @@ The corresponding dosage of the C allele would be 2.
 A SNP will indicate two possible bases at a genomic location, e.g. T/G. Each base pairs with a complementary base on the DNA strand. In this case T binds with A and G binds with C. Therefore it would be just as informative to identify the possible bases at this SNP as A/C. The difference here is that one is on the forward strand of DNA and one on the backwards strand of DNA. It is important that the target data and the reference data are coded on the same strand, to avoid the phasing and imputation algorithms resulting in an error. 
 
 ###*Answer 12:*
-awk '{ if ($9 < 5.e-8) print }' results/bmi_clean.assoc.linear.add
+awk '{ if ($9 < 5.e-8) print }' ../results/bmi_clean.assoc.linear.add
 
 There are two significant SNPs: rs2867125 (beta -0.6, reference allele T, P value 1.6e-09) and rs7561317 (beta -0.6, reference allele A, P value 1.6e-09).
 
 ###*Answer 13:*
 We use unix to print out relevant association statistics from the imputed results. 
-awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print }' /results/BMIphenImputedResults.txt | grep -v 'model_not_fit'  | wc -l
+awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print }' ../results/BMIphenImputedResults.txt | grep -v 'model_not_fit'  | wc -l
 
 There are now 218 associations. Columns 2, 6, 9, 19, 21, 23 are marker id, reference allele, info score, MAF, P value and beta respectively
 
-awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print $2" "$6" "$9" "$19" "$21" "$23 }' /results/BMIphenImputedResults.txt | egrep 'rs2867125|rs7561317'
+awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print $2" "$6" "$9" "$19" "$21" "$23 }' ../results/BMIphenImputedResults.txt | egrep 'rs2867125|rs7561317'
 
 This gives the results below. These results match those in the observed data as expected.
 
@@ -243,6 +243,6 @@ rs2867125 C 1 0.167658 1.60884e-09 0.612093
 rs7561317 G 1 0.167658 1.63548e-09 0.612093
 
 Lets take a look at the top associations 
-awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print }' /results/BMIphenImputedResults.txt | grep -v 'model_not_fit'  | awk '{ print $2" "$6" "$9" "$19" "$21" "$23}' | sort ‐g ‐k 5 | head
+awk '{ if ( ( $9 > 0.5) && ($21 < 5.e-8) && ($19 > 0.01) && ($19 < 0.99)) print }' ../results/BMIphenImputedResults.txt | grep -v 'model_not_fit'  | awk '{ print $2" "$6" "$9" "$19" "$21" "$23}' | sort ‐g ‐k 5 | head
 
 There are many SNPs with P values lower or close to those in the observed data. Imputation quality is also generally high. Each would be a good candidate for futher examination (e.g. protein coding changes, eqtl site? etc).
