@@ -47,26 +47,31 @@ Run the script phase.sh
 
 Take a look at the output file results/geno_qc_TMEM18.phased.haps
 
+
 ###*Question 1:*
 
 ######How would the phasing algorithm use recombination rates ?
 <br />
 ---
+
 ###*Question 2:*
 
 ######How many subjects and SNPs are in the sample data? 
 <br />
 ---
+
 ###*Question 3:*
 
 ######How many haplotypes, then, will be in the sample and how many SNPs? 
 <br />
 ---
+
 ###*Question 4:*
  
 ######What do the the runs of 0's and 1's represent in the output haplotype file? hint (check https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html#hapsample)
 <br />
 ---
+
 ###*Question 5:*
  
 ######How many rows and columns would you expect in this file? Confirm how many there actually are.
